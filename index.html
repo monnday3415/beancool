@@ -3,7 +3,24 @@
   
 <a href="https://supergirl.on.fleek.co"><br /><strong>https://supergirl.on.fleek.co</strong></a></p>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">Bookmark This Page</a>
+<script>
+$(function() {
+  $('#bookmarkme').click(function() {
+    if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+      window.sidebar.addPanel(document.title, window.location.href, '');
+    } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
+      window.external.AddFavorite(location.href, document.title);
+    } else if (window.opera && window.print) { // Opera Hotlist
+      this.title = document.title;
+      return true;
+    } else { // webkit - safari/chrome
+      alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+    }
+  });
+});
+</script>
 
 
 <p>Email to dnoelamian9350@gmail.com to get latest links</p>
